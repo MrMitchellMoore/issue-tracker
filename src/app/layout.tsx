@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "Issue Tracker",
@@ -13,7 +14,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="h-screen w-full">{children}</body>
+      <body className="h-screen w-full">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
