@@ -18,8 +18,10 @@ export default function RootLayout({
     <html lang="en">
       <body className="h-screen w-full">
         <Theme>
-          <Navbar />
-          {children}
+          <main>
+            <Navbar />
+            {children}
+          </main>
         </Theme>
       </body>
     </html>
