@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import "@radix-ui/themes/styles.css";
 import "./globals.css";
+import { Theme } from "@radix-ui/themes";
 import Navbar from "@/components/Navbar";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Issue Tracker",
@@ -15,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="h-screen w-full">
-        <Navbar />
-        {children}
+        <Theme>
+          <Navbar />
+          {children}
+        </Theme>
       </body>
     </html>
   );
