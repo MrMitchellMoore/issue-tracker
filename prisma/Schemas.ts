@@ -7,3 +7,11 @@ export const createIssueSchema = z.object({
     .min(1, { message: "Description is required" })
     .max(255),
 });
+
+export const IssueSchema = z.object({
+  title: z.string().min(1, { message: "Title is required" }).max(255),
+  description: z
+    .string()
+    .min(1, { message: "Description is required" })
+    .max(255),
+});
