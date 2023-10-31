@@ -8,6 +8,7 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import ErrorMessage from "@/components/ErrorMessage";
 
 type IssueForm = z.infer<typeof createIssueSchema>;
 
@@ -24,18 +25,9 @@ const NewIssuePage = () => {
 
   return (
     <div className="w-full h-screen flex flex-col justify-center items-center z-[100]">
-      {errors.title?.message || errors.description?.message ? (
-        <Callout.Root size="3">
-          <Callout.Icon>
-            <Info color="black" />
-          </Callout.Icon>
-          <Callout.Text>
-            {errors.title?.message || errors.description?.message}
-          </Callout.Text>
-        </Callout.Root>
-      ) : (
-        ""
-      )}
+      <ErrorMessage>
+        {errors.title?.message || errors.description?.message}
+      </ErrorMessage>
       <form
         className="w-full flex my-2"
         onSubmit={handleSubmit(async (data) => {
@@ -43,8 +35,8 @@ const NewIssuePage = () => {
             await axios.post("/api/issues", data);
             reset();
             router.push("/issues");
-          } catch (error: any) {
-            console.log("Something went wrong in the process " + errors);
+          } catch (error) {
+            console.log("Something went wrong in the process " + error);
           }
         })}
       >
