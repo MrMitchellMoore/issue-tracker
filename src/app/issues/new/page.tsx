@@ -1,7 +1,7 @@
 "use client";
 
-import { Button, Callout, TextArea, TextField } from "@radix-ui/themes";
-import { Info, Pencil } from "lucide-react";
+import { Button, TextArea, TextField } from "@radix-ui/themes";
+import { Pencil } from "lucide-react";
 import { createIssueSchema } from "@/../prisma/Schemas";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
